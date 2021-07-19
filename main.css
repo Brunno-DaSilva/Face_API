@@ -8,9 +8,19 @@ body{
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #010e38;
+}
+
+
+h1{
+    color: whitesmoke; 
+    font-size: 15rem;
+    position: absolute;
+    top: 20%; 
+    left: 25%;
 }
 canvas{
     position: absolute;

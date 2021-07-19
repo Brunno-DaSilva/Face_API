@@ -28,7 +28,34 @@ video.addEventListener('play', () => {
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
     
-    console.log(detections)    
     
+    // console.log(detections[0].expressions.neutral)  
+
+    const neutral = detections[0].expressions.neutral > 0.90; 
+    const angry = detections[0].expressions.angry > 0.90; 
+    const sad = detections[0].expressions.sad > 0.90; 
+    const happy = detections[0].expressions.happy > 0.90;
+    const surprised = detections[0].expressions.surprised > 0.90;
+    const disgusted = detections[0].expressions.disgusted > 0.90;
+
+    const faceExpression = document.getElementById('faceExpression')
+
+    if(neutral){
+        faceExpression.innerText = `😐`
+    }else if(angry){
+        faceExpression.innerText = `😡`
+    }else if(sad){
+        faceExpression.innerText = `😔`
+    }else if(happy){
+        faceExpression.innerText = `😊`
+    }else if(surprised){
+        faceExpression.innerText = `😱`
+    }else{
+        faceExpression.innerText = `😐`
+    }
+
+
+
+
   }, 100)
 })
